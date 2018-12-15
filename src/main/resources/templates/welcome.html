@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+</head>
+<body>
+<h1>欢迎 ${ (Session["currentUser"].username)! } 来到 Spring Boot + React 全栈开发的世界</h1>
+<button id="logout">退出</button>
+</body>
+<script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('#logout').on('click', () => {
+            $.ajax({
+                url: '/logout.json',
+                type: 'POST',
+                success: () => {
+                    location.reload()
+                },
+                error: () => {
+                }
+            })
+        })
+    })
+</script>
+</html>
