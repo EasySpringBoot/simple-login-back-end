@@ -41,6 +41,9 @@ class LoginFilter : Filter {
         }
     }
 
+    /**
+     * 跳转登陆
+     */
     private fun redirectLogin(request: ServletRequest, response: ServletResponse) {
         val httpServletRequest = request as HttpServletRequest
         var toURL = httpServletRequest.requestURL.toString()
@@ -54,6 +57,9 @@ class LoginFilter : Filter {
         httpServletRequest.getRequestDispatcher("/login").forward(request, response)
     }
 
+    /**
+     * 是否白名单
+     */
     private fun isEscapeUrls(requestURI: String): Boolean {
         LoginFilterConfig.FILTER_PASS_URLS.iterator().forEach {
             if (requestURI.indexOf(it) >= 0) {

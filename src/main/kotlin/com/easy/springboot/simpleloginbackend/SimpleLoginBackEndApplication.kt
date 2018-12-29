@@ -11,6 +11,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan
 import org.springframework.context.support.beans
 
 @SpringBootApplication(exclude = [ErrorMvcAutoConfiguration::class])// exclude, 有异常不会找默认error页面了，而是直接输出字符串
+
+// 在 SpringBootApplication 上使用@ServletComponentScan 注解后，Servlet、Filter、Listener 可以直接通过 @WebServlet、@WebFilter、@WebListener 注解自动注册，无需其他代码。
 @ServletComponentScan(basePackageClasses = [LoginFilter::class])
 class SimpleLoginBackEndApplication
 
